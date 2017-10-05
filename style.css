@@ -22,7 +22,7 @@ body {
   border: 1px solid #0C96CA;
   background-color: #D9EEF6;
   margin: 20px 0px 20px 0px;
-  padding: 20px 0px 20px 0px;
+  padding: 20px 10px 20px 10px;
   font-size: 16px;
   cursor: pointer;
   display: inline-block;
@@ -49,4 +49,24 @@ body {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#8c5bff',
                                                      endColorstr='#b2d8ff',
                                                      GradientType=1);
+}
+
+.subpane {
+  background-color: #caf0f6;
+  padding: 10px;
+  margin-top: 25px;
+}
+
+.discrete_link {
+  color: #000000;
+  text-decoration: none;
+}
+
+table, td {
+  border: 1px solid black;
+}
+
+td {
+  padding: 5px;
+  margin: 0px;
 }
