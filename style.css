@@ -12,8 +12,7 @@ body {
   line-height: 25px;
 }
 
-.title {
-  margin: 15px;
+.content_title {
   font-size: 28px;
   text-align: center;
 }
@@ -30,6 +29,30 @@ body {
 
 .content_button:hover {
   background-color: #0C96CA;
+}
+
+.discrete_link {
+  color: #000000;
+  text-decoration: none;
+}
+
+.subpane {
+  background-color: #D9EEF6;
+  padding: 10px;
+  margin-top: 25px;
+}
+
+.subpane_title {
+  font-size: 115%;
+}
+
+table, td {
+  border: 1px solid black;
+}
+
+td {
+  padding: 5px;
+  margin: 0px;
 }
 
 #title_bar {
@@ -49,24 +72,4 @@ body {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#8c5bff',
                                                      endColorstr='#b2d8ff',
                                                      GradientType=1);
-}
-
-.subpane {
-  background-color: #D9EEF6;
-  padding: 10px;
-  margin-top: 25px;
-}
-
-.discrete_link {
-  color: #000000;
-  text-decoration: none;
-}
-
-table, td {
-  border: 1px solid black;
-}
-
-td {
-  padding: 5px;
-  margin: 0px;
 }
