@@ -1,11 +1,23 @@
 body {
-  background-color: #00427f;
   font-family: Century Gothic, sans-serif;
   margin: 0;
+  background: rgb(140,91,255);
+  background:    -moz-linear-gradient(left, rgba(140, 91, 255, 1) 0%,
+                                            rgba(43, 149, 255, 1) 50%,
+                                            rgba(178, 216, 255, 1) 100%);
+  background: -webkit-linear-gradient(left, rgba(140, 91, 255, 1) 0%,
+                                            rgba(43, 149, 255, 1) 50%,
+                                            rgba(178, 216, 255, 1) 100%);
+  background:     linear-gradient(to right, rgba(140, 91, 255, 1) 0%,
+                                            rgba(43, 149, 255, 1) 50%,
+                                            rgba(178, 216, 255, 1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#8c5bff',
+                                                     endColorstr='#b2d8ff',
+                                                     GradientType=1);
 }
 
 .content_pane {
-  background-color: rgba(178, 216, 255, 1);
+  background-color: rgba(227, 254, 255, 0.5);
   margin: 35px 0px 35px 0px;
   padding: 25px;
   font-size: 16px;
@@ -19,8 +31,8 @@ body {
 }
 
 .content_button {
-  border: 1px solid #0C96CA;
-  background-color: #D9EEF6;
+  border: none;
+  background-color: #BCE3FF;
   margin: 10px 0px 20px 0px;
   padding: 20px 10px 20px 10px;
   font-size: 16px;
@@ -29,7 +41,7 @@ body {
 }
 
 .content_button:hover {
-  background-color: #0C96CA;
+  background-color: #88CBFB;
 }
 
 .discrete_link {
@@ -38,7 +50,7 @@ body {
 }
 
 .subpane {
-  background-color: #D9EEF6;
+  background-color: rgba(227, 254, 255, 0.18);
   padding: 10px;
   margin-top: 25px;
 }
@@ -60,17 +72,4 @@ td {
   text-align: center;
   margin: 0;
   padding: 25px 0px 25px 0px;
-  background: rgb(140,91,255);
-  background:    -moz-linear-gradient(left, rgba(140, 91, 255, 1) 0%,
-                                            rgba(43, 149, 255, 1) 50%,
-                                            rgba(178, 216, 255, 1) 100%);
-  background: -webkit-linear-gradient(left, rgba(140, 91, 255, 1) 0%,
-                                            rgba(43, 149, 255, 1) 50%,
-                                            rgba(178, 216, 255, 1) 100%);
-  background:     linear-gradient(to right, rgba(140, 91, 255, 1) 0%,
-                                            rgba(43, 149, 255, 1) 50%,
-                                            rgba(178, 216, 255, 1) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#8c5bff',
-                                                     endColorstr='#b2d8ff',
-                                                     GradientType=1);
 }
