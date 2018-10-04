@@ -12,10 +12,15 @@
 <body>
   <!-- TITLE BAR -->
   <div id="title_bar">
-    <h1 style="font-size: 48px;">
+    <h1 style="font-size: 44px; line-height: 0.7">
       <a class="discrete_link" href="/index.html">Jason Vega</a>
     </h1>
-    <subhead style="font-size: 22px;">Student Developer</subhead>
+    <subhead style="font-size: 22px; line-height: 2;">
+      <a class="quick_link" href="#about">About</a>
+      <a class="quick_link" href="resume.pdf">Resumé</a>
+      <a class="quick_link" href="#teaching">Teaching</a>
+      <a class="quick_link" href="#contact">Contact</a>
+    </subhead>
   </div>
   <!-- ABOUT ME -->
   <div id="about" class="content_pane">
@@ -35,6 +40,12 @@
     neural computation. I look to the future with optimism, and hope to one day
     become a leader in developing more capable artificial intelligence for the
     benefit of humanity.</p>
+
+    <div style="text-align: center">
+      <button class="content_button" onclick="window.location.href=resume.pdf'">
+            View Resumé
+      </button>
+    </div>
   </div>
   <!-- TEACHING -->
   <div id="teaching" class="content_pane" style="text-align: center;">
