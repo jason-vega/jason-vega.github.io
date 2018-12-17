@@ -38,10 +38,11 @@ body {
   font-size: 16px;
   cursor: pointer;
   display: inline-block;
+  border-radius: 4px;
 }
 
 .content_button:hover {
-  background-color: #88CBFB;
+  background-color: #B1DEFF;
 }
 
 .discrete_link, .quick_link {
