@@ -1,8 +1,12 @@
 #headshot {
-  max-width: 200px !important;
+  max-width: 250px;
 }
 
 #name {
   margin-top: 76px;
   margin-bottom: 20px;
+}
+
+.project-preview {
+  max-width: 200px;
 }
