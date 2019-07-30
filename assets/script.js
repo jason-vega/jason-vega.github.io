@@ -1,6 +1,17 @@
-function scrollToContent(elementId) {
-  var offset = document.getElementById("navbar").offsetHeight;
-  var element = document.getElementById(elementId);
+function adjustSpacer(spacerId, contentId, offsetMultiplier) {
+  var spacer = document.getElementById(spacerId);
+  var content = document.getElementById(contentId);
+  var contentTop = content.getBoundingClientRect().top;
+  var bodyTop = document.body.getBoundingClientRect().top;
+  var spacerHeight = 56;
 
-  window.scrollTo(0, element.offsetTop - offset);
+  spacer.style.position = "absolute";
+  spacer.style.top = (contentTop - bodyTop - spacerHeight * offsetMultiplier) +
+    "px";
+}
+
+function adjustSpacers(offsetMultiplier) {
+  adjustSpacer("about", "aboutContent", offsetMultiplier);
+  adjustSpacer("projects", "projectsContent", offsetMultiplier);
+  adjustSpacer("contact", "contactContent", offsetMultiplier);
 }

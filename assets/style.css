@@ -2,11 +2,11 @@
   max-width: 250px;
 }
 
-#name {
-  margin-top: 76px;
-  margin-bottom: 20px;
-}
-
 .project-preview {
   max-width: 200px;
+}
+
+.spacer {
+  width: 100%;
+  height: 56px;
 }
