@@ -1,3 +1,11 @@
+.discrete-link {
+  color: #212529 !important;
+}
+
+.discrete-link:hover {
+  text-decoration: none !important;
+}
+
 #headshotCol {
   max-width: 250px;
 }
