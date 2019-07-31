@@ -5,6 +5,7 @@ function adjustSpacer(spacerId, contentId, offsetMultiplier) {
   var bodyTop = document.body.getBoundingClientRect().top;
   var spacerHeight = 56;
 
+  spacer.style.position = "absolute";
   spacer.style.top = (contentTop - bodyTop - spacerHeight * offsetMultiplier) +
     "px";
 }
