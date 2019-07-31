@@ -44,8 +44,10 @@ function scrollToElement(elementId, maxSpeed) {
 
     var delta = Math.sign(elementTop) * getDelta(deltaScroll, 
       elementTop, speed);
+
+    console.log(currentTop + " " + delta);
     
-    if (currentTop != lastTop && Math.abs(currentTop - delta) > 1) {
+    if (currentTop != lastTop && Math.abs(currentTop) >= Math.abs(delta)) {
       window.scrollBy(0, delta);
       lastTop = currentTop;
     }
