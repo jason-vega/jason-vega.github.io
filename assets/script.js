@@ -1,19 +1,17 @@
-function adjustSpacer(spacerId, contentId, offsetMultiplier) {
+function adjustSpacer(spacerId, contentId) {
   var spacer = document.getElementById(spacerId);
   var content = document.getElementById(contentId);
   var contentTop = content.getBoundingClientRect().top;
   var bodyTop = document.body.getBoundingClientRect().top;
   var spacerHeight = 56;
 
-  spacer.style.position = "absolute";
-  spacer.style.top = (contentTop - bodyTop - spacerHeight * offsetMultiplier) +
-    "px";
+  spacer.style.top = (contentTop - bodyTop - spacerHeight) + "px";
 }
 
-function adjustSpacers(offsetMultiplier) {
-  adjustSpacer("about", "aboutContent", offsetMultiplier);
-  adjustSpacer("projects", "projectsContent", offsetMultiplier);
-  adjustSpacer("contact", "contactContent", offsetMultiplier);
+function adjustSpacers() {
+  adjustSpacer("about", "aboutContent");
+  adjustSpacer("projects", "projectsContent");
+  adjustSpacer("contact", "contactContent");
 }
 
 function getDelta(currentScroll, targetScroll, maxDelta) {
@@ -45,8 +43,6 @@ function scrollToElement(elementId, maxSpeed) {
     var delta = Math.sign(elementTop) * getDelta(deltaScroll, 
       elementTop, speed);
 
-    console.log(currentTop + " " + delta);
-    
     if (currentTop != lastTop && Math.abs(currentTop) >= Math.abs(delta)) {
       window.scrollBy(0, delta);
       lastTop = currentTop;
@@ -64,8 +60,6 @@ window.onload = function() {
   var contactNavLink = document.getElementById("contactNavLink");
   var scrollSpeed = 75;
 
-  adjustSpacers(2);
-
   aboutNavLink.onclick = function() {
     scrollToElement("about", scrollSpeed);
   };
@@ -77,4 +71,6 @@ window.onload = function() {
   contactNavLink.onclick = function() {
     scrollToElement("contact", scrollSpeed);
   };
+
+  adjustSpacers();
 }
