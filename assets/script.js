@@ -29,7 +29,7 @@ function getDocumentHeight() {
     document.documentElement.offsetHeight);
 }
 
-function scrollToElement(elementId, maxSpeed) {
+function scrollToElement(elementId, maxSpeed, urlChange="#" + elementId) {
   var element = document.getElementById(elementId);
   var elementTop = element.getBoundingClientRect().top;
   var lastTop = 0;
@@ -49,7 +49,7 @@ function scrollToElement(elementId, maxSpeed) {
     }
     else {
       window.clearInterval(animate);
-      window.location.replace("#" + elementId);
+      window.location.replace(urlChange);
     }
   }, animationDelay);
 }
@@ -62,7 +62,7 @@ window.onload = function() {
   var scrollSpeed = 75;
 
   topNavLink.onclick = function() {
-    scrollToElement("top", scrollSpeed);
+    scrollToElement("top", scrollSpeed, "#");
   };
 
   aboutNavLink.onclick = function() {
