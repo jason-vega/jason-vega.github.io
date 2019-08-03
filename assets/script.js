@@ -55,10 +55,15 @@ function scrollToElement(elementId, maxSpeed) {
 }
 
 window.onload = function() {
+  var topNavLink = document.getElementById("topNavLink");
   var aboutNavLink = document.getElementById("aboutNavLink");
   var projectsNavLink = document.getElementById("projectsNavLink");
   var contactNavLink = document.getElementById("contactNavLink");
   var scrollSpeed = 75;
+
+  topNavLink.onclick = function() {
+    scrollToElement("top", scrollSpeed);
+  };
 
   aboutNavLink.onclick = function() {
     scrollToElement("about", scrollSpeed);

@@ -13,7 +13,9 @@
 <body onresize="adjustSpacers()">
   <nav class="navbar fixed-top navbar-expand-sm navbar-light bg-light"
     id="navbar">
-    <a class="navbar-brand" href="index.html">JV</a>
+    <a class="navbar-brand" id="topNavLink" data-toggle="collapse"
+      data-target=".navbar-collapse.show" aria-controls="navbarContent" 
+      aria-expanded="false">JV</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse"
       data-target="#navbarContent" aria-controls="navbarContent"
       aria-expanded="false">
@@ -42,7 +44,7 @@
       </ul>
     </div>
   </nav>
-  <div class="spacer" id="firstSpacer">
+  <div class="spacer" id="top">
     &nbsp;
   </div>
   <div class="container-fluid my-4" id="name">
