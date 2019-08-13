@@ -125,6 +125,5 @@ window.onload = function() {
   };
 
   adjustAllContent();
-
   adjustSpacers();
 }
