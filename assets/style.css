@@ -3,7 +3,22 @@ a {
 }
 
 .contact-icon {
-  font-size: 2rem;
+  font-size: 5vmax !important;
+}
+
+.container h2 {
+  font-size: 5vmax;
+  font-weight: 300;
+}
+
+.container h5 {
+  font-size: 3vmax;
+  font-weight: 300;
+}
+
+.container p, table {
+  font-size: 2.5vmax !important;
+  font-weight: lighter;
 }
 
 .discrete-link:hover {
@@ -18,6 +33,16 @@ a {
   max-width: 250px;
 }
 
+#name h1 {
+  font-size: 8vmax;
+  font-weight: 300;
+}
+
+#name p {
+  font-size: 4vmax;
+  font-weight: lighter;
+}
+
 .project-preview {
   max-width: 200px;
 }
@@ -26,4 +51,44 @@ a {
   width: 100%;
   height: 56px;
   position: absolute;
+}
+
+@media screen and (min-width: 768px) {
+  .contact-icon {
+    font-size: calc(768px * 5 / 100) !important;
+  }
+
+  .container h2 {
+    font-size: calc(768px * 5 / 100);
+  }
+
+  .container h5 {
+    font-size: calc(768px * 3 / 100);
+  }
+
+  .container p, table {
+    font-size: calc(768px * 2.5 / 100) !important;
+  }
+
+  #name h1 {
+    font-size: calc(768px * 8 / 100);
+  }
+
+  #name p {
+    font-size: calc(768px * 4 / 100);
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .container h2 {
+    font-size: calc(576px * 5 / 100) !important;
+  }
+
+  .container h5 {
+    font-size: calc(576px * 3 / 100) !important;
+  }
+
+  .container p, table {
+    font-size: calc(576px * 2.5 / 100) !important;
+  }
 }
