@@ -14,6 +14,26 @@ function adjustSpacers() {
   adjustSpacer("contact", "contactContent");
 }
 
+function adjustContent(contentId) {
+  var content = document.getElementById(contentId);
+  var windowHeight = window.innerHeight;
+  var yMargin = 
+    parseFloat(window.getComputedStyle(content, null)
+      .getPropertyValue('margin-top')
+      .replace(/px/, ""));
+  var spacerHeight = 56;
+  var contentHeight = windowHeight - 2 * yMargin - spacerHeight;
+
+  content.children[0].style.minHeight = contentHeight + "px";
+}
+
+function adjustAllContent() {
+  adjustContent("name");
+  adjustContent("aboutContent");
+  adjustContent("projectsContent");
+  adjustContent("contactContent");
+}
+
 function getDelta(currentScroll, targetScroll, maxDelta) {
   var x = currentScroll / targetScroll;
   var y = Math.sqrt(Math.pow(0.5, 2) - Math.pow(x - 0.5, 2));
@@ -29,7 +49,7 @@ function getDocumentHeight() {
     document.documentElement.offsetHeight);
 }
 
-function scrollToElement(elementId, maxSpeed, urlChange="#" + elementId) {
+function scrollToElement(elementId, maxSpeed, showUrl=true) {
   var element = document.getElementById(elementId);
   var elementTop = element.getBoundingClientRect().top;
   var lastTop = 0;
@@ -46,10 +66,17 @@ function scrollToElement(elementId, maxSpeed, urlChange="#" + elementId) {
     if (currentTop != lastTop && Math.abs(currentTop) >= Math.abs(delta)) {
       window.scrollBy(0, delta);
       lastTop = currentTop;
+      console.log(currentTop);
     }
     else {
       window.clearInterval(animate);
-      window.location.replace(urlChange);
+
+      if (showUrl) {
+        window.location.hash = elementId;
+      }
+      else {
+        history.pushState("", document.title, window.location.pathname);
+      }
     }
   }, animationDelay);
 }
@@ -57,25 +84,47 @@ function scrollToElement(elementId, maxSpeed, urlChange="#" + elementId) {
 window.onload = function() {
   var topNavLink = document.getElementById("topNavLink");
   var aboutNavLink = document.getElementById("aboutNavLink");
+  var aboutNavLinkCollapsed = document.getElementById("aboutNavLinkCollapsed");
   var projectsNavLink = document.getElementById("projectsNavLink");
+  var projectsNavLinkCollapsed = 
+    document.getElementById("projectsNavLinkCollapsed");
   var contactNavLink = document.getElementById("contactNavLink");
+  var contactNavLinkCollapsed = document.getElementById("contactNavLinkCollapsed");
   var scrollSpeed = 75;
 
-  topNavLink.onclick = function() {
-    scrollToElement("top", scrollSpeed, "#");
+  topNavLink.onclick = function(e) {
+    e.preventDefault();
+    scrollToElement("top", scrollSpeed, false);
   };
 
-  aboutNavLink.onclick = function() {
+  aboutNavLink.onclick = function(e) {
+    e.preventDefault();
     scrollToElement("about", scrollSpeed);
   };
 
-  projectsNavLink.onclick = function() {
+  aboutNavLinkCollapsed.onclick = function(e) {
+    scrollToElement("about", scrollSpeed);
+  };
+
+  projectsNavLink.onclick = function(e) {
+    e.preventDefault();
     scrollToElement("projects", scrollSpeed);
   };
 
-  contactNavLink.onclick = function() {
+  projectsNavLinkCollapsed.onclick = function(e) {
+    scrollToElement("projects", scrollSpeed);
+  };
+
+  contactNavLink.onclick = function(e) {
+    e.preventDefault();
     scrollToElement("contact", scrollSpeed);
   };
+
+  contactNavLinkCollapsed.onclick = function(e) {
+    scrollToElement("contact", scrollSpeed);
+  };
+
+  adjustAllContent();
 
   adjustSpacers();
 }
