@@ -44,7 +44,7 @@ function fadeContent() {
       .getComputedStyle(fadeElements[i], null)
       .getPropertyValue('opacity'));
   
-    if (elementTop - 4 * spacerHeight <= 0) {
+    if (elementTop - 5 * spacerHeight <= 0) {
       if (currentOpacity == 0) {
         fadeIn(fadeElements[i]);
       }
