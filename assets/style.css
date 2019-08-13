@@ -25,6 +25,38 @@ a {
   text-decoration: none !important;
 }
 
+.fade {
+  opacity: 0;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+.fade-in {
+  animation: fadeIn .5s ease-in 1 forwards;
+}
+
+.fade-out {
+  animation: fadeOut .5s ease-in 1 forwards;
+}
+
 #top {
   position: relative;
 }

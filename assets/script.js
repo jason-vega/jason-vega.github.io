@@ -34,6 +34,49 @@ function adjustAllContent() {
   adjustContent("contactContent");
 }
 
+function fadeContent() {
+  var fadeElements = document.getElementsByClassName("fade");
+  var spacerHeight = 56;
+
+  for (var i = 0; i < fadeElements.length; i++) {
+    var elementTop = fadeElements[i].getBoundingClientRect().top;
+    var currentOpacity = parseFloat(window
+      .getComputedStyle(fadeElements[i], null)
+      .getPropertyValue('opacity'));
+  
+    if (elementTop - 3 * spacerHeight <= 0) {
+      if (currentOpacity == 0) {
+        fadeIn(fadeElements[i]);
+      }
+    }
+    else {
+      if (currentOpacity == 1) {
+        fadeOut(fadeElements[i]);
+      }
+    }
+  }
+}
+
+function fadeIn(element) {
+  if (element.classList.contains("fade-out")) {
+    element.classList.remove("fade-out");
+  }
+
+  if (!element.classList.contains("fade-in")) {
+    element.classList.add("fade-in");
+  }
+}
+
+function fadeOut(element) {
+  if (element.classList.contains("fade-in")) {
+    element.classList.remove("fade-in");
+  }
+
+  if (!element.classList.contains("fade-out")) {
+    element.classList.add("fade-out");
+  }
+}
+
 function getDelta(currentScroll, targetScroll, maxDelta) {
   var x = currentScroll / targetScroll;
   var y = Math.sqrt(Math.pow(0.5, 2) - Math.pow(x - 0.5, 2));
@@ -90,7 +133,7 @@ window.onload = function() {
     document.getElementById("projectsNavLinkCollapsed");
   var contactNavLink = document.getElementById("contactNavLink");
   var contactNavLinkCollapsed = document.getElementById("contactNavLinkCollapsed");
-  var scrollSpeed = 75;
+  var scrollSpeed = 40;
 
   topNavLink.onclick = function(e) {
     e.preventDefault();
@@ -126,4 +169,6 @@ window.onload = function() {
 
   adjustAllContent();
   adjustSpacers();
+
+  fadeContent();
 }
