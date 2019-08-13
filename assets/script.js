@@ -99,7 +99,7 @@ function scrollToElement(elementId, maxSpeed, showUrl=true) {
   var speed = Math.abs(elementTop) * maxSpeed / getDocumentHeight();
   var animationDelay = 10;
 
-  var animate = window.setInterval(function () {
+  (function scroll() {
     var currentTop = element.getBoundingClientRect().top;
     var deltaScroll = elementTop - currentTop
 
@@ -109,11 +109,9 @@ function scrollToElement(elementId, maxSpeed, showUrl=true) {
     if (currentTop != lastTop && Math.abs(currentTop) >= Math.abs(delta)) {
       window.scrollBy(0, delta);
       lastTop = currentTop;
-      console.log(currentTop);
+      window.requestAnimationFrame(scroll);
     }
     else {
-      window.clearInterval(animate);
-
       if (showUrl) {
         window.location.hash = elementId;
       }
@@ -121,7 +119,7 @@ function scrollToElement(elementId, maxSpeed, showUrl=true) {
         history.pushState("", document.title, window.location.pathname);
       }
     }
-  }, animationDelay);
+  })();
 }
 
 window.onload = function() {
@@ -133,7 +131,7 @@ window.onload = function() {
     document.getElementById("projectsNavLinkCollapsed");
   var contactNavLink = document.getElementById("contactNavLink");
   var contactNavLinkCollapsed = document.getElementById("contactNavLinkCollapsed");
-  var scrollSpeed = 40;
+  var scrollSpeed = 50;
 
   topNavLink.onclick = function(e) {
     e.preventDefault();
