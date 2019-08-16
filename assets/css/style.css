@@ -33,6 +33,26 @@ canvas {
   opacity: 0;
 }
 
+@keyframes fadeHalf {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 0.5;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -84,7 +104,8 @@ canvas {
   top: 56px;
   width: 100%;
   height: calc(100vh - 56px);
-  opacity: 0.5;
+  opacity: 0;
+  animation: fadeHalf 0.5s ease-in 1 forwards;
 }
 
 .project-preview {
