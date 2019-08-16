@@ -6,12 +6,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylesheet" href="assets/style.css">
+  <link rel="stylesheet" href="assets/css/style.css">
   <script src="https://kit.fontawesome.com/6951c6a5f0.js"></script>
-  <script src="assets/script.js"></script>
+  <script src="assets/js/three.js"></script>
+  <script src="assets/js/script.js"></script>
 </head>
 <body data-spy="scroll" data-target=".navbar"
-  onresize="adjustAllContent(); adjustSpacers();" onscroll="fadeContent()"> 
+  onresize="adjustAllContent(); adjustSpacers(); 
+  drawNameBackground('nameBackground')" onscroll="fadeContent()"> 
   <nav class="navbar fixed-top navbar-expand-sm navbar-light bg-light"
     id="navbar">
     <a class="navbar-brand" id="topNavLink" data-toggle="collapse"
@@ -54,6 +56,8 @@
   </nav>
   <div class="spacer" id="top">
     &nbsp;
+  </div>
+  <div id="nameBackground">
   </div>
   <div class="container-fluid my-4 fade" id="name">
     <div class="row justify-content-center align-items-center">

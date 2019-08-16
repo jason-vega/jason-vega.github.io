@@ -34,6 +34,77 @@ function adjustAllContent() {
   adjustContent("contactContent");
 }
 
+function drawNameBackground(elementId) {
+  var container = document.getElementById(elementId);
+  var containerStyle = window.getComputedStyle(container, null);
+  var containerWidth = parseFloat(containerStyle
+    .getPropertyValue("width")
+    .replace(/px/, ""));
+  var containerHeight = parseFloat(containerStyle
+    .getPropertyValue("height")
+    .replace(/px/, ""));
+
+  var fov = 75;
+  var aspect = containerWidth / containerHeight;
+  var near = 0.1;
+  var far = 1000;
+
+  var cameraX = 0;
+  var cameraY = 0;
+  var cameraZ = 5;
+  var cameraLookAtX = 0;
+  var cameraLookAtY = 0;
+  var cameraLookAtZ = 0;
+
+  var radius = 2.75;
+  var widthSegments = 50;
+  var heightSegments = 50;
+
+  var rotationRate = 0.0015;
+
+  var scene = new THREE.Scene();
+  scene.background = new THREE.Color(0xffffff);
+
+  var camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
+  camera.position.set(cameraX, cameraY, cameraZ);
+  camera.lookAt(cameraLookAtX, cameraLookAtY, cameraLookAtZ);
+
+  var renderer = new THREE.WebGLRenderer();
+  renderer.setSize(containerWidth, containerHeight);
+  container.innerHTML = "";
+  container.appendChild(renderer.domElement);
+
+  var sphereGeometry = new THREE.SphereGeometry(radius, widthSegments,
+    heightSegments);
+  var sphereMaterial = new THREE.MeshNormalMaterial({
+    polygonOffset: true,
+    polygonOffsetFactor: 1,
+    polygonOffsetUnits: 1
+  });
+  var sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
+  scene.add(sphere);
+
+  var edgeGeometry = new THREE.WireframeGeometry(sphereGeometry);
+  var edgeMaterial = new THREE.LineBasicMaterial({
+    color: 0xffffff
+  });
+  var edges = new THREE.LineSegments(edgeGeometry, edgeMaterial);
+  scene.add(edges);
+
+  var animate = function() {
+    requestAnimationFrame(animate);
+
+    sphere.rotation.x += rotationRate;
+    sphere.rotation.y += rotationRate;
+    edges.rotation.x += rotationRate;
+    edges.rotation.y += rotationRate;
+
+    renderer.render(scene, camera);
+  }
+
+  animate();
+}
+
 function fadeContent() {
   var fadeElements = document.getElementsByClassName("fade");
   var spacerHeight = 56;
@@ -131,6 +202,7 @@ window.onload = function() {
     document.getElementById("projectsNavLinkCollapsed");
   var contactNavLink = document.getElementById("contactNavLink");
   var contactNavLinkCollapsed = document.getElementById("contactNavLinkCollapsed");
+  var nameBackground = "nameBackground";
   var scrollSpeed = 50;
 
   topNavLink.onclick = function(e) {
@@ -167,6 +239,8 @@ window.onload = function() {
 
   adjustAllContent();
   adjustSpacers();
+
+  drawNameBackground(nameBackground);
 
   fadeContent();
 }

@@ -2,6 +2,10 @@ a {
   cursor: pointer !important;
 }
 
+canvas {
+  width: 100% !important;
+}
+
 .contact-icon {
   font-size: 5vmax !important;
 }
@@ -73,6 +77,14 @@ a {
 #name p {
   font-size: 4vmax;
   font-weight: lighter;
+}
+
+#nameBackground {
+  position: absolute;
+  top: 56px;
+  width: 100%;
+  height: calc(100vh - 56px);
+  opacity: 0.5;
 }
 
 .project-preview {
