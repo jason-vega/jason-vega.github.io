@@ -28,13 +28,12 @@ function adjustSpacers() {
 
 function adjustContent(contentId) {
   var content = document.getElementById(contentId);
+  var yPadding = parseFloat(window.getComputedStyle(content, null)
+    .getPropertyValue("padding-top")
+    .replace(/px/, ""));
   var windowHeight = window.innerHeight;
-  var yMargin = 
-    parseFloat(window.getComputedStyle(content, null)
-      .getPropertyValue('margin-top')
-      .replace(/px/, ""));
   var spacerHeight = 56;
-  var contentHeight = windowHeight - 2 * yMargin - spacerHeight;
+  var contentHeight = windowHeight - spacerHeight - 2 * yPadding;
 
   content.children[0].style.minHeight = contentHeight + "px";
 }
