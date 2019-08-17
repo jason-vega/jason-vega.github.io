@@ -69,11 +69,11 @@ function drawNameBackground(elementId) {
   var cameraLookAtZ = 0;
 
   var radius = 4;
-  var tube = 1;
+  var tube = 0.75;
   var tubularSegments = 64;
   var radialSegments = 8;
-  var p = 9;
-  var q = 2;
+  var p = Math.ceil(Math.random() * 10) + 1;
+  var q = Math.ceil(Math.random() * 10) + 1;
 
   var rotationRate = 0.0015;
 
