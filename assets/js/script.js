@@ -96,7 +96,7 @@ function drawNameBackground(elementId) {
 
   var cameraX = 0;
   var cameraY = 0;
-  var cameraZ = 5;
+  var cameraZ = 4.5;
   var cameraLookAtX = 0;
   var cameraLookAtY = 0;
   var cameraLookAtZ = 0;
@@ -227,17 +227,17 @@ function getDocumentHeight() {
     document.documentElement.offsetHeight);
 }
 
-function getPrimes(n) {
+function getCoprimes(p, n) {
   var filter = [];
-  var primes = [];
+  var coprimes = [];
 
   for (var i = 0; i <= n; i++) {
     filter.push(true);
   }
 
-  for (var i = 2; i * i <= n; i++) {
-    if (filter[i]) {
-      for (var j = i * i; j <= n; j += i) {
+  for (var i = 2; i <= p; i++) {
+    if (filter[i] && p % i == 0) {
+      for (var j = i; j <= n; j += i) {
         filter[j] = false;
       }
     }
@@ -245,11 +245,11 @@ function getPrimes(n) {
 
   for (var i = 2; i <= n; i++) {
     if (filter[i]) {
-      primes.push(i);
+      coprimes.push(i);
     }
   }
 
-  return primes;
+  return coprimes;
 }
 
 function getRandomInt(min, max) {
@@ -257,9 +257,9 @@ function getRandomInt(min, max) {
 }
 
 function getTorusValues(n) {
-  var primes = getPrimes(n);
-  var p = primes.splice(getRandomInt(0, primes.length), 1)[0];
-  var q = primes[getRandomInt(0, primes.length)];
+  var p = getRandomInt(2, n);
+  var coprimes = getCoprimes(p, n);
+  var q = coprimes[getRandomInt(0, coprimes.length)];
 
   return [p, q];
 }
