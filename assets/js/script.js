@@ -49,6 +49,35 @@ function adjustAllContent() {
   adjustContent("contactContent");
 }
 
+function changeUrl() {
+  var about = document.getElementById("about");
+  var projects = document.getElementById("projects");
+  var contact = document.getElementById("contact");
+  var aboutTop = about.getBoundingClientRect().top;
+  var projectsTop = projects.getBoundingClientRect().top;
+  var contactTop = contact.getBoundingClientRect().top;
+  var title = "Jason Vega";
+
+  if (contactTop <= 1) {
+    if (history.pushState) {
+      history.replaceState(null, title, "#contact");
+    }
+  }
+  else if (projectsTop <= 1) {
+    if (history.pushState) {
+      history.replaceState(null, title, "#projects");
+    }
+  }
+  else if (aboutTop <= 1) {
+    if (history.pushState) {
+      history.replaceState(null, title, "#about");
+    }
+  }
+  else {
+    history.pushState("", document.title, window.location.pathname);
+  }
+}
+
 function drawNameBackground(elementId) {
   var container = document.getElementById(elementId);
   var containerStyle = window.getComputedStyle(container, null);
@@ -254,14 +283,6 @@ function scrollToElement(elementId, maxSpeed, showUrl=true) {
       window.scrollBy(0, delta);
       lastTop = currentTop;
       window.requestAnimationFrame(scroll);
-    }
-    else {
-      if (showUrl) {
-        window.location.hash = elementId;
-      }
-      else {
-        history.pushState("", document.title, window.location.pathname);
-      }
     }
   })();
 }
