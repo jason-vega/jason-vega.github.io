@@ -60,17 +60,17 @@ function changeUrl() {
 
   if (contactTop <= 1) {
     if (history.pushState) {
-      history.replaceState(null, title, "#contact");
+      history.replaceState(null, document.title, "#contact");
     }
   }
   else if (projectsTop <= 1) {
     if (history.pushState) {
-      history.replaceState(null, title, "#projects");
+      history.replaceState(null, document.title, "#projects");
     }
   }
   else if (aboutTop <= 1) {
     if (history.pushState) {
-      history.replaceState(null, title, "#about");
+      history.replaceState(null, document.title, "#about");
     }
   }
   else {
@@ -283,6 +283,14 @@ function scrollToElement(elementId, maxSpeed, showUrl=true) {
       window.scrollBy(0, delta);
       lastTop = currentTop;
       window.requestAnimationFrame(scroll);
+    }
+    else {
+      if (showUrl) {
+        window.location.hash = "#" + elementId;
+      }
+      else {
+        history.pushState("", document.title, window.location.pathname);
+      }
     }
   })();
 }
