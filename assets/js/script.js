@@ -1,3 +1,15 @@
+function addEvent(object, type, callback) {
+  if (object.addEventListener) {
+    object.addEventListener(type, callback, false);
+  }
+  else if (object.attachEvent) {
+    object.attachEvent("on" + type, callback);
+  }
+  else {
+    object["on" + type] = callback;
+  }
+}
+
 function adjustSpacer(spacerId, contentId) {
   var spacer = document.getElementById(spacerId);
   var content = document.getElementById(contentId);
@@ -103,6 +115,20 @@ function drawNameBackground(elementId) {
   }
 
   animate();
+
+  addEvent(window,"resize", () => {
+    containerStyle = window.getComputedStyle(container, null);
+    containerWidth = parseFloat(containerStyle
+      .getPropertyValue("width")
+      .replace(/px/, ""));
+    containerHeight = parseFloat(containerStyle
+      .getPropertyValue("height")
+      .replace(/px/, ""));
+
+    camera.aspect = containerWidth / containerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(containerWidth, containerHeight);
+  });
 }
 
 function fadeContent() {
