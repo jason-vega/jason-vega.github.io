@@ -24,6 +24,12 @@ function adjustSpacers() {
   adjustSpacer("about", "aboutContent");
   adjustSpacer("projects", "projectsContent");
   adjustSpacer("contact", "contactContent");
+
+  addEvent(window, "resize", () => {
+    adjustSpacer("about", "aboutContent");
+    adjustSpacer("projects", "projectsContent");
+    adjustSpacer("contact", "contactContent");
+  });
 }
 
 function adjustContent(contentId) {
@@ -43,6 +49,13 @@ function adjustAllContent() {
   adjustContent("aboutContent");
   adjustContent("projectsContent");
   adjustContent("contactContent");
+
+  addEvent(window, "resize", () => {
+    adjustContent("name");
+    adjustContent("aboutContent");
+    adjustContent("projectsContent");
+    adjustContent("contactContent");
+  });
 }
 
 function drawNameBackground(elementId) {
