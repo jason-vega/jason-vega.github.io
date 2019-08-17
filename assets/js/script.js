@@ -68,12 +68,16 @@ function drawNameBackground(elementId) {
   var cameraLookAtY = 0;
   var cameraLookAtZ = 0;
 
-  var radius = 4;
-  var tube = 0.75;
+  var radius = 4.5;
+  var tube = 0.5;
   var tubularSegments = 64;
   var radialSegments = 8;
-  var p = Math.ceil(Math.random() * 10) + 1;
-  var q = Math.ceil(Math.random() * 10) + 1;
+  var maxTorusValue = 13;
+  var vals = getTorusValues(maxTorusValue);
+  var p = vals[0];
+  var q = vals[1];
+
+  console.log(p, q);
 
   var rotationRate = 0.0015;
 
@@ -190,6 +194,43 @@ function getDocumentHeight() {
     document.documentElement.clientHeight,
     document.documentElement.scrollHeight,
     document.documentElement.offsetHeight);
+}
+
+function getPrimes(n) {
+  var filter = [];
+  var primes = [];
+
+  for (var i = 0; i <= n; i++) {
+    filter.push(true);
+  }
+
+  for (var i = 2; i * i <= n; i++) {
+    if (filter[i]) {
+      for (var j = i * i; j <= n; j += i) {
+        filter[j] = false;
+      }
+    }
+  }
+
+  for (var i = 2; i <= n; i++) {
+    if (filter[i]) {
+      primes.push(i);
+    }
+  }
+
+  return primes;
+}
+
+function getRandomInt(min, max) {
+  return Math.floor(Math.random() * (max - min)) + min;
+}
+
+function getTorusValues(n) {
+  var primes = getPrimes(n);
+  var p = primes.splice(getRandomInt(0, primes.length), 1)[0];
+  var q = primes[getRandomInt(0, primes.length)];
+
+  return [p, q];
 }
 
 function scrollToElement(elementId, maxSpeed, showUrl=true) {
