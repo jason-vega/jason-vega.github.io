@@ -28,12 +28,16 @@ function adjustSpacers() {
 
 function adjustContent(contentId) {
   var content = document.getElementById(contentId);
-  var yPadding = parseFloat(window.getComputedStyle(content, null)
+  var paddingTop = parseFloat(window.getComputedStyle(content, null)
     .getPropertyValue("padding-top")
     .replace(/px/, ""));
+  var paddingBottom = parseFloat(window.getComputedStyle(content, null)
+    .getPropertyValue("padding-top")
+    .replace(/px/, ""));
+  var yPadding = paddingTop + paddingBottom;
   var windowHeight = window.innerHeight;
   var spacerHeight = 56;
-  var contentHeight = windowHeight - spacerHeight - 2 * yPadding;
+  var contentHeight = windowHeight - spacerHeight - yPadding;
 
   content.children[0].style.minHeight = contentHeight + "px";
 }
@@ -157,26 +161,6 @@ function fadeContent() {
         fadeOut(fadeElements[i]);
       }
     }
-  }
-}
-
-function fadeIn(element) {
-  if (element.classList.contains("fade-out")) {
-    element.classList.remove("fade-out");
-  }
-
-  if (!element.classList.contains("fade-in")) {
-    element.classList.add("fade-in");
-  }
-}
-
-function fadeOut(element) {
-  if (element.classList.contains("fade-in")) {
-    element.classList.remove("fade-in");
-  }
-
-  if (!element.classList.contains("fade-out")) {
-    element.classList.add("fade-out");
   }
 }
 
