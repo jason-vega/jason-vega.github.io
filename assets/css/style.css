@@ -33,13 +33,13 @@ canvas {
   opacity: 0;
 }
 
-@keyframes fadeQuarter {
+@keyframes fadeThird {
   from {
     opacity: 0;
   }
 
   to {
-    opacity: 0.25;
+    opacity: 0.33;
   }
 }
 
@@ -95,7 +95,7 @@ canvas {
   width: 100%;
   height: calc(100vh - 56px);
   opacity: 0;
-  animation: fadeQuarter 0.5s ease-in 1 forwards;
+  animation: fadeThird 0.5s ease-in 1 forwards;
 }
 
 .project-preview {
