@@ -68,9 +68,12 @@ function drawNameBackground(elementId) {
   var cameraLookAtY = 0;
   var cameraLookAtZ = 0;
 
-  var radius = 2.75;
-  var widthSegments = 50;
-  var heightSegments = 50;
+  var radius = 4;
+  var tube = 1;
+  var tubularSegments = 64;
+  var radialSegments = 8;
+  var p = 9;
+  var q = 2;
 
   var rotationRate = 0.0015;
 
@@ -86,17 +89,17 @@ function drawNameBackground(elementId) {
   container.innerHTML = "";
   container.appendChild(renderer.domElement);
 
-  var sphereGeometry = new THREE.SphereGeometry(radius, widthSegments,
-    heightSegments);
-  var sphereMaterial = new THREE.MeshNormalMaterial({
+  var torusKnotGeometry = new THREE.TorusKnotGeometry(radius, tube, 
+    tubularSegments, radialSegments, p, q);
+  var torusKnotMaterial = new THREE.MeshNormalMaterial({
     polygonOffset: true,
     polygonOffsetFactor: 1,
     polygonOffsetUnits: 1
   });
-  var sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
-  scene.add(sphere);
+  var torusKnot = new THREE.Mesh(torusKnotGeometry, torusKnotMaterial);
+  scene.add(torusKnot);
 
-  var edgeGeometry = new THREE.WireframeGeometry(sphereGeometry);
+  var edgeGeometry = new THREE.WireframeGeometry(torusKnotGeometry);
   var edgeMaterial = new THREE.LineBasicMaterial({
     color: 0xffffff
   });
@@ -106,8 +109,8 @@ function drawNameBackground(elementId) {
   var animate = function() {
     requestAnimationFrame(animate);
 
-    sphere.rotation.x += rotationRate;
-    sphere.rotation.y += rotationRate;
+    torusKnot.rotation.x += rotationRate;
+    torusKnot.rotation.y += rotationRate;
     edges.rotation.x += rotationRate;
     edges.rotation.y += rotationRate;
 
