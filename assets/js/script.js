@@ -164,6 +164,26 @@ function fadeContent() {
   }
 }
 
+function fadeIn(element) {
+  if (element.classList.contains("fade-out")) {
+    element.classList.remove("fade-out");
+  }
+
+  if (!element.classList.contains("fade-in")) {
+    element.classList.add("fade-in");
+  }
+}
+
+function fadeOut(element) {
+  if (element.classList.contains("fade-in")) {
+    element.classList.remove("fade-in");
+  }
+
+  if (!element.classList.contains("fade-out")) {
+    element.classList.add("fade-out");
+  }
+}
+
 function getDelta(currentScroll, targetScroll, maxDelta) {
   var x = currentScroll / targetScroll;
   var y = Math.sqrt(Math.pow(0.5, 2) - Math.pow(x - 0.5, 2));
