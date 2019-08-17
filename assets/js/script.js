@@ -57,23 +57,24 @@ function changeUrl() {
   var projectsTop = projects.getBoundingClientRect().top;
   var contactTop = contact.getBoundingClientRect().top;
   var title = "Jason Vega";
+  var currentHash = window.location.hash.replace(/#/, "");
 
   if (contactTop <= 1) {
-    if (history.pushState) {
+    if (history.pushState && currentHash != "contact") {
       history.replaceState(null, document.title, "#contact");
     }
   }
   else if (projectsTop <= 1) {
-    if (history.pushState) {
+    if (history.pushState && currentHash != "projects") {
       history.replaceState(null, document.title, "#projects");
     }
   }
   else if (aboutTop <= 1) {
-    if (history.pushState) {
+    if (history.pushState && currentHash != "about") {
       history.replaceState(null, document.title, "#about");
     }
   }
-  else {
+  else if (currentHash != "") {
     history.pushState("", document.title, window.location.pathname);
   }
 }
@@ -108,8 +109,6 @@ function drawNameBackground(elementId) {
   var vals = getTorusValues(maxTorusValue);
   var p = vals[0];
   var q = vals[1];
-
-  console.log(p, q);
 
   var rotationRate = 0.0015;
 
