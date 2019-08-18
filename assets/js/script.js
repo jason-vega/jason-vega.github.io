@@ -61,21 +61,25 @@ function changeUrl() {
 
   if (contactTop <= 1) {
     if (history.pushState && currentHash != "contact") {
+      document.title = "Jason Vega - Contact";
       history.replaceState(null, document.title, "#contact");
     }
   }
   else if (projectsTop <= 1) {
     if (history.pushState && currentHash != "projects") {
-      history.replaceState(null, document.title, "#projects");
+      document.title = "Jason Vega - Projects";
+      history.replaceState(null, document.title + " - Projects", "#projects");
     }
   }
   else if (aboutTop <= 1) {
     if (history.pushState && currentHash != "about") {
-      history.replaceState(null, document.title, "#about");
+      document.title = "Jason Vega - About";
+      history.replaceState(null, document.title + "- About", "#about");
     }
   }
   else if (currentHash != "") {
-    history.pushState("", document.title, window.location.pathname);
+    document.title = "Jason Vega";
+    history.replaceState("", document.title, "index.html");
   }
 }
 
@@ -288,10 +292,17 @@ function scrollToElement(elementId, maxSpeed, showUrl=true) {
         window.location.hash = "#" + elementId;
       }
       else {
-        history.pushState("", document.title, window.location.pathname);
+        history.replaceState("", document.title, window.location.pathname);
       }
     }
   })();
+}
+
+function titleFromElementId(id) {
+  var baseName = "Jason Vega";
+  var capitalized = id.charAt(0).toUpperCase() + id.slice(1);
+
+  return baseName + " - " + capitalized;
 }
 
 window.onload = function() {
@@ -345,7 +356,9 @@ window.onload = function() {
   drawNameBackground(nameBackground);
 
   if (initialHash != "") {
+    console.log(initialHash);
     window.location.hash = initialHash;
+    document.title = titleFromElementId(initialHash.replace(/#/, ""));
   }
 
   fadeContent();
@@ -353,5 +366,10 @@ window.onload = function() {
   addEvent(window, "resize", () => {
     adjustAllContent();
     adjustSpacers();
+  });
+
+  addEvent(window, "scroll", () => {
+    fadeContent();
+    changeUrl();
   });
 }
