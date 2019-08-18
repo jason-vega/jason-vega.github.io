@@ -12,17 +12,14 @@ canvas {
 
 .container h2, .container-fluid h2 {
   font-size: 5vmax;
-  font-weight: 300;
 }
 
 .container h5, .container-fluid h5 {
   font-size: 3vmax;
-  font-weight: 300;
 }
 
 .container p, .container-fluid p, table {
   font-size: 2.5vmax;
-  font-weight: lighter;
 }
 
 .discrete-link:hover {
@@ -81,12 +78,10 @@ canvas {
 
 #name h1 {
   font-size: 8vmax;
-  font-weight: 300;
 }
 
 #name p {
   font-size: 4vmax;
-  font-weight: lighter;
 }
 
 #nameBackground {
