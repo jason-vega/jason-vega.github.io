@@ -358,6 +358,7 @@ window.onload = function() {
 
   if (initialHash != "") {
     window.location.hash = initialHash;
+    document.getElementById(initialHash.replace(/#/, "")).scrollIntoView();
     document.title = titleFromElementId(initialHash.replace(/#/, ""));
   }
 
