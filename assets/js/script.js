@@ -305,6 +305,7 @@ window.onload = function() {
   var contactNavLinkCollapsed = document.getElementById("contactNavLinkCollapsed");
   var nameBackground = "nameBackground";
   var scrollSpeed = 50;
+  var initialHash = window.location.hash;
 
   topNavLink.onclick = function(e) {
     e.preventDefault();
@@ -342,6 +343,10 @@ window.onload = function() {
   adjustSpacers();
 
   drawNameBackground(nameBackground);
+
+  if (initialHash != "") {
+    window.location.hash = initialHash;
+  }
 
   fadeContent();
 
