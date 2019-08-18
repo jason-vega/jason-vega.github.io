@@ -22,6 +22,7 @@ canvas {
 
 .container p, .container-fluid p, table {
   font-size: 2.5vmax;
+  font-weight: 300;
 }
 
 .discrete-link:hover {
@@ -85,7 +86,6 @@ canvas {
 
 #name p {
   font-size: 4vmax;
-  font-weight: 300;
 }
 
 #nameBackground {
