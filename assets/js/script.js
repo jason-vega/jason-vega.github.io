@@ -333,7 +333,7 @@ window.onload = function() {
   var contactNavLink = document.getElementById("contactNavLink");
   var contactNavLinkCollapsed = document.getElementById("contactNavLinkCollapsed");
   var nameBackground = "nameBackground";
-  var scrollSpeed = 50;
+  var scrollSpeed = 100;
   var initialHash = window.location.hash;
 
   topNavLink.onclick = function(e) {
