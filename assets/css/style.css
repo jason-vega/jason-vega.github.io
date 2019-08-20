@@ -10,17 +10,17 @@ canvas {
   font-size: 5vmax !important;
 }
 
-.container h2, .container-fluid h2 {
+h2 {
   font-size: 5vmax;
   font-weight: 300;
 }
 
-.container h5, .container-fluid h5 {
+h5 {
   font-size: 3vmax;
   font-weight: 300;
 }
 
-.container p, .container-fluid p, table {
+a, p, table {
   font-size: 2.5vmax;
   font-weight: 300;
 }
@@ -88,6 +88,16 @@ canvas {
   font-size: 4vmax;
 }
 
+#navbar .navbar-brand {
+  font-size: 1.25rem;
+  font-weight: 400;
+}
+
+#navbar .nav-link {
+  font-size: 1rem;
+  font-weight: 400;
+}
+
 #nameBackground {
   position: absolute;
   top: 56px;
@@ -98,7 +108,15 @@ canvas {
 }
 
 .project-preview {
+  width: 25vw;
+  max-width: 300px;
+  min-width: 250px;
+}
+
+.project-preview-sm {
+  width: 50vw;
   max-width: 200px;
+  min-width: 175px;
 }
 
 .spacer {
@@ -112,15 +130,15 @@ canvas {
     font-size: calc(768px * 5 / 100) !important;
   }
 
-  .container h2, .container-fluid h2 {
+  h2 {
     font-size: calc(768px * 5 / 100);
   }
 
-  .container h5, .container-fluid h5 {
+  h5 {
     font-size: calc(768px * 3 / 100);
   }
 
-  .container p, .container-fluid p, table {
+  a, p, table {
     font-size: calc(768px * 2.5 / 100);
   }
 
@@ -134,15 +152,15 @@ canvas {
 }
 
 @media screen and (max-width: 576px) {
-  .container h2, .container-fluid h2 {
+  h2 {
     font-size: calc(576px * 5 / 100);
   }
 
-  .container h5, .container-fluid h5 {
+  h5 {
     font-size: calc(576px * 3 / 100);
   }
 
-  .container p, .container-fluid p, table {
+  a, p, table {
     font-size: calc(576px * 2.5 / 100);
   }
 }

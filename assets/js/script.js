@@ -15,7 +15,7 @@ function adjustSpacer(spacerId, contentId) {
   var content = document.getElementById(contentId);
   var contentTop = content.getBoundingClientRect().top;
   var bodyTop = document.body.getBoundingClientRect().top;
-  var spacerHeight = 56;
+  var spacerHeight = getNavbarHeight("navbar");
 
   spacer.style.top = (contentTop - bodyTop - spacerHeight) + "px";
 }
@@ -36,7 +36,7 @@ function adjustContent(contentId) {
     .replace(/px/, ""));
   var yPadding = paddingTop + paddingBottom;
   var windowHeight = window.innerHeight;
-  var spacerHeight = 56;
+  var spacerHeight = getNavbarHeight("navbar");
   var contentHeight = windowHeight - spacerHeight - yPadding;
 
   content.children[0].style.minHeight = contentHeight + "px";
@@ -47,6 +47,15 @@ function adjustAllContent() {
   adjustContent("aboutContent");
   adjustContent("projectsContent");
   adjustContent("contactContent");
+}
+
+function adjustSpacerHeight() {
+  var spacerHeight = getNavbarHeight("navbar");
+  var spacers = document.getElementsByClassName("spacer");
+
+  for (var i = 0; i < spacers.length; i++) {
+    spacers[i].style.height = spacerHeight + "px";
+  }
 }
 
 function changeUrl() {
@@ -175,14 +184,14 @@ function drawNameBackground(elementId) {
 
 function fadeContent() {
   var fadeElements = document.getElementsByClassName("fade");
-  var spacerHeight = 56;
+  var spacerHeight = getNavbarHeight("navbar");
 
   for (var i = 0; i < fadeElements.length; i++) {
     var elementTop = fadeElements[i].getBoundingClientRect().top;
     var currentOpacity = parseFloat(window
       .getComputedStyle(fadeElements[i], null)
       .getPropertyValue('opacity'));
-    var threshold = 2 * window.innerHeight / 3;
+    var threshold = 3 * window.innerHeight / 4;
   
     if (elementTop <= threshold) {
       if (currentOpacity == 0) {
@@ -224,14 +233,6 @@ function getDelta(currentScroll, targetScroll, maxDelta) {
   return y * (maxDelta - 1) / 0.5 + 1;
 }
 
-function getDocumentHeight() {
-  return Math.max(document.body.scrollHeight,
-    document.body.offsetHeight,
-    document.documentElement.clientHeight,
-    document.documentElement.scrollHeight,
-    document.documentElement.offsetHeight);
-}
-
 function getCoprimes(p, n) {
   var filter = [];
   var coprimes = [];
@@ -257,8 +258,24 @@ function getCoprimes(p, n) {
   return coprimes;
 }
 
+function getDocumentHeight() {
+  return Math.max(document.body.scrollHeight,
+    document.body.offsetHeight,
+    document.documentElement.clientHeight,
+    document.documentElement.scrollHeight,
+    document.documentElement.offsetHeight);
+}
+
 function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
+}
+
+function getNavbarHeight(navbarId) {
+  var navbar = document.getElementById(navbarId);
+  var navbarHeight = parseFloat(window.getComputedStyle(navbar, null)
+    .getPropertyValue("height").replace(/px/, ""));
+
+  return navbarHeight;
 }
 
 function getTorusValues(n) {
@@ -351,6 +368,7 @@ window.onload = function() {
     scrollToElement("contact", scrollSpeed);
   };
 
+  adjustSpacerHeight();
   adjustAllContent();
   adjustSpacers();
 
@@ -365,6 +383,7 @@ window.onload = function() {
   fadeContent();
 
   addEvent(window, "resize", () => {
+    adjustSpacerHeight();
     adjustAllContent();
     adjustSpacers();
   });
