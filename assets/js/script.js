@@ -191,7 +191,8 @@ function fadeContent() {
     var currentOpacity = parseFloat(window
       .getComputedStyle(fadeElements[i], null)
       .getPropertyValue('opacity'));
-    var threshold = 3 * window.innerHeight / 4;
+    var thresholdRatio = 5 / 6;
+    var threshold = window.innerHeight * thresholdRatio;
   
     if (elementTop <= threshold) {
       if (currentOpacity == 0) {
