@@ -64,11 +64,11 @@ a, p, table {
 }
 
 .fade-in {
-  animation: fadeIn .5s ease-in 1 forwards;
+  animation: fadeIn 0.66s ease-in 1 forwards;
 }
 
 .fade-out {
-  animation: fadeOut .5s ease-in 1 forwards;
+  animation: fadeOut 0.66s ease-in 1 forwards;
 }
 
 #top {
@@ -104,7 +104,7 @@ a, p, table {
   width: 100%;
   height: calc(100vh - 56px);
   opacity: 0;
-  animation: fadeInThird 0.5s ease-in 1 forwards;
+  animation: fadeInThird 0.66s ease-in 1 forwards;
 }
 
 .project-preview {
