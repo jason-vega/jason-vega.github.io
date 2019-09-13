@@ -19,8 +19,9 @@ function addProject(project, projectListContainer, background, justifyImage) {
     'align-items-center">';
 
   if (justifyImage == "left") {
-    projectHtml += '<div class="col-auto d-none d-sm-block"><img src="' + 
-      project.imageUrl + '" alt="' + project.title + '"></div>';
+    projectHtml += '<div class="col-auto d-none d-sm-block"><img class="' +
+      'card-img rounded-0 project-preview" src="' + project.imageUrl + 
+      '" alt="' + project.title + '"></div>';
   }
   
   projectHtml += '<div class="col-sm"><div class="card-body"><h5 ' +
