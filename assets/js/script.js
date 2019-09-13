@@ -10,6 +10,71 @@ function addEvent(object, type, callback) {
   }
 }
 
+function addProject(projectListContainer, project, background, justifyImage) {
+  var projectHtml = '<div class="card rounded-0 bg-' + background + ' border-' +
+    background + ' fade"><div class="row no-gutters justify-content-center ' +
+    'mt-3 d-block d-sm-none"><div class="col-auto text-center"><img src="' +
+    project.imageUrl + ' class="project-preview-sm rounded-circle shadow" ' + 
+    'alt="' + project.title + '"></div></div><div class="row no-gutters ' +
+    'align-items-center">';
+
+  if (justifyImage == "left") {
+    projectHtml += '<div class="col-auto d-none d-sm-block"><img src="' + 
+      project.imageUrl + '" alt="' + project.title + '"></div>';
+  }
+  
+  projectHtml += '<div class="col-sm"><div class="card-body"><h5 ' +
+    'class="card-title">' + project.title + '</h5><p class="card-text">' + 
+    project.description + '</p>';
+
+  for (link of project.links) {
+    projectHtml += '<a class="card-link" href="' + link.url + '">' + 
+      link.title + '</a>';
+  }
+
+  if (project.contribution != null) {
+    var contributionId = camelize(project.title) + "Contribution";
+
+    projectHtml += '<a class="card-link" data-toggle="collapse" href="#' +
+      contributionId + '">My contribution</a><p class="' +
+      'card-text mt-3 collapse" id="' + contributionId + '">';
+
+    for (var i = 0; i < project.contribution.length; i++) {
+      var text = project.contribution[i];
+
+      projectHtml += "- " + text;
+
+      if (i != project.contribution.length - 1) {
+        projectHtml += "<br>";
+      }
+    }
+
+    projectHtml += '</p>';
+  }
+
+  if (project.technologies != null) {
+    projectHtml += '<p class="card-text mt-3 mb-2">';
+
+    for (text of project.technologies) {
+      projectHtml += '<span class="badge badge-secondary">' + text + '</span>';
+    }
+
+    projectHtml += '</p>';
+  }
+
+  projectHtml += '</div></div>';
+
+  if (justifyImage == "right") {
+    projectHtml += '<div class="col-auto d-none d-sm-block"><img src="' + 
+      project.imageUrl + '" class="card-img rounded-0 project-preview" ' + 
+      'alt="' + project.title + '"></div>';
+  }
+
+  projectHtml += '</div></div>';
+
+  projectListContainer.insertAdjacentHTML('beforeend', projectHtml);
+}
+
 function adjustSpacer(spacerId, contentId) {
   var spacer = document.getElementById(spacerId);
   var content = document.getElementById(contentId);
@@ -56,6 +121,20 @@ function adjustSpacerHeight() {
   for (var i = 0; i < spacers.length; i++) {
     spacers[i].style.height = spacerHeight + "px";
   }
+}
+
+function camelize(text) {
+  var textSplit = text.split(" ");
+  var result = "";
+
+  for (var i = 0; i < textSplit.length; i++) {
+    var word = textSplit[i];
+
+    result += (i == 0 ? word.charAt(0).toLowerCase() : 
+      word.charAt(0).toUpperCase()) + word.slice(1).toLowerCase();
+  }
+
+  return result;
 }
 
 function changeUrl() {
@@ -333,6 +412,8 @@ window.onload = function() {
   var contactNavLink = document.getElementById("contactNavLink");
   var contactNavLinkCollapsed = 
     document.getElementById("contactNavLinkCollapsed");
+  var projectsListContainer = 
+    document.getElementById("projectsListContainer");
   var bioText = document.getElementById("bioText");
   var nameBackground = "nameBackground";
   var dataFile = "assets/js/data.json";
@@ -346,7 +427,12 @@ window.onload = function() {
       var data = JSON.parse(this.responseText);
 
       bioText.innerHTML = data.bio;
-      console.log("SUCCESS");
+
+      for (var i = 0; i < data.projects.length; i++) {
+        addProject(data.projects[i], projectsListContainer, 
+          (i % 2 == 0 ? "light" : "dark"),
+          (i % 2 == 0 ? "right" : "left"));
+      }
     }
   }
 

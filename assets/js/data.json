@@ -1,3 +1,43 @@
 {
-  "bio" : "Hey there! I'm Jason, a highly passionate and motivated 19 year old from Pleasant Hill, California. I'm also a student at UC San Diego majoring in computer science and minoring in mathematics. During my free time, I like to play on my violin, cook something up in the kitchen, or head to the gym to workout. I look to the future with optimism, and hope to one day become a leader in developing more capable artificial intelligence for the benefit of humanity."
+  "bio" : "Hey there! I'm Jason, a highly passionate and motivated 19 year old from Pleasant Hill, California. I'm also a student at UC San Diego majoring in computer science and minoring in mathematics. During my free time, I like to play on my violin, cook something up in the kitchen, or head to the gym to workout. I look to the future with optimism, and hope to one day become a leader in developing more capable artificial intelligence for the benefit of humanity.",
+  "projects" : [
+    {
+      "title" : "Digit Classifier",
+      "description" : "A scalable Java neural network featuring the stochastic gradient descent algorithm to recognize digits in the <a href=\"http://yann.lecun.com/exdb/mnist/index.html\">MNIST</a> data set.",
+      "imageUrl" : "assets/images/digit_classifier.JPG",
+      "links" : [
+        {
+          "title" : "GitHub",
+          "url" : "https://github.com/jason-vega/DigitClassifier"
+        }
+      ],
+      "technologies" : [
+        "Java"
+      ]
+    },
+    {
+      "title" : "UCSD SSA Website",
+      "description" : "The official website of the Symphonic Student Association at UC San Diego.", 
+      "imageUrl" : "assets/images/ssa.JPG",
+      "links" : [
+        {
+          "title" : "Website", 
+          "url" : "https://ssa.ucsd.edu"
+        }, 
+        {
+          "title" : "GitHub",
+          "url" : "https://github.com/tritonse/SSA"
+        }
+      ],
+      "contribution" : [
+        "Developed a responsive layout of the home page navigation bar and background slideshow.", 
+        "Utilized the PHP Google Calendar API to retrieve and display public calendar data.",
+        "Reverse engineered an embedded Google Calendar to modify its default appearance."
+      ],
+      "technologies" : [
+        "Bootstrap", "HTML", "CSS", "JavaScript",
+         "PHP", "Google Calendar"
+      ]
+    }
+  ]
 }
