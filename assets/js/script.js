@@ -342,7 +342,7 @@ window.onload = function() {
   var scrollSpeed = 100;
 
   request.onreadystatechange = function() {
-    if (this.readystate == 4 && this.status == 200) {
+    if (this.readyState == 4 && this.status == 200) {
       var data = this.responseText; //JSON.parse(this.responseText);
 
       bioText.innerHTML = data.bio;
