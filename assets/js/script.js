@@ -336,13 +336,13 @@ window.onload = function() {
   var bioText = document.getElementById("bioText");
   var nameBackground = "nameBackground";
   var dataFile = "assets/js/data.json";
-  var scrollSpeed = 100;
   var initialHash = window.location.hash;
   var request = new XMLHttpRequest();
+  var scrollSpeed = 100;
 
   request.onreadystatechange = function() {
     if (this.readystate == 4 && this.status == 200) {
-      var data = JSON.parse(this.responseText);
+      var data = this.responseText; //JSON.parse(this.responseText);
 
       bioText.innerHTML = data.bio;
     }
