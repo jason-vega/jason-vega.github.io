@@ -74,7 +74,7 @@ function addProject(projectListContainer, project, background, justifyImage) {
 
   projectHtml += '</div></div>';
 
-  document.getElementByid(projectListContainer)
+  document.getElementById(projectListContainer)
     .insertAdjacentHTML('beforeend', projectHtml);
 }
 
