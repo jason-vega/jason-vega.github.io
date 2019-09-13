@@ -12,8 +12,9 @@ function addEvent(object, type, callback) {
 
 function addProject(project, projectListContainer, background, justifyImage) {
   var projectHtml = '<div class="card rounded-0 bg-' + background + ' border-' +
-    background + ' fade"><div class="row no-gutters justify-content-center ' +
-    'mt-3 d-block d-sm-none"><div class="col-auto text-center"><img src="' +
+    background + ' text-' + (background == 'dark' ? 'light' : 'dark') + 
+    ' fade"><div class="row no-gutters justify-content-center mt-3 d-block ' + 
+    'd-sm-none"><div class="col-auto text-center"><img src="' +
     project.imageUrl + ' class="project-preview-sm rounded-circle shadow" ' + 
     'alt="' + project.title + '"></div></div><div class="row no-gutters ' +
     'align-items-center">';
