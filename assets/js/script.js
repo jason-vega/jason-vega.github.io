@@ -346,6 +346,7 @@ window.onload = function() {
       var data = this.responseText; //JSON.parse(this.responseText);
 
       bioText.innerHTML = data.bio;
+      console.log("SUCCESS");
     }
   }
 
