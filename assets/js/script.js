@@ -426,23 +426,6 @@ window.onload = function() {
   var request = new XMLHttpRequest();
   var scrollSpeed = 100;
 
-  request.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-      var data = JSON.parse(this.responseText);
-
-      bioText.innerHTML = data.bio;
-
-      for (var i = 0; i < data.projects.length; i++) {
-        addProject(data.projects[i], projectsListContainer, 
-          (i % 2 == 0 ? "light" : "dark"),
-          (i % 2 == 0 ? "right" : "left"));
-      }
-    }
-  }
-
-  request.open("GET", dataFile, true);
-  request.send();
-
   topNavLink.onclick = function(e) {
     e.preventDefault();
     scrollToElement("top", scrollSpeed, false);
@@ -475,20 +458,6 @@ window.onload = function() {
     scrollToElement("contact", scrollSpeed);
   };
 
-  adjustSpacerHeight();
-  adjustAllContent();
-  adjustSpacers();
-
-  drawNameBackground(nameBackground);
-
-  if (initialHash != "") {
-    window.location.hash = initialHash;
-    document.getElementById(initialHash.replace(/#/, "")).scrollIntoView();
-    document.title = titleFromElementId(initialHash.replace(/#/, ""));
-  }
-
-  fadeContent();
-
   addEvent(window, "resize", () => {
     adjustSpacerHeight();
     adjustAllContent();
@@ -499,4 +468,35 @@ window.onload = function() {
     fadeContent();
     changeUrl();
   });
+
+  request.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      var data = JSON.parse(this.responseText);
+
+      bioText.innerHTML = data.bio;
+
+      for (var i = 0; i < data.projects.length; i++) {
+        addProject(data.projects[i], projectsListContainer, 
+          (i % 2 == 0 ? "light" : "dark"),
+          (i % 2 == 0 ? "right" : "left"));
+      }
+
+      adjustSpacerHeight();
+      adjustAllContent();
+      adjustSpacers();
+
+      drawNameBackground(nameBackground);
+
+      if (initialHash != "") {
+        window.location.hash = initialHash;
+        document.getElementById(initialHash.replace(/#/, "")).scrollIntoView();
+        document.title = titleFromElementId(initialHash.replace(/#/, ""));
+      }
+
+      fadeContent();
+    }
+  }
+
+  request.open("GET", dataFile, true);
+  request.send();
 }
