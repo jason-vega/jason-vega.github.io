@@ -59,7 +59,8 @@ function addProject(project, projectListContainer, background, justifyImage) {
     projectHtml += '<p class="card-text mt-3 mb-2">';
 
     for (text of project.technologies) {
-      projectHtml += '<span class="badge badge-secondary">' + text + '</span>';
+      projectHtml += '<span class="badge badge-secondary">' + text + 
+        '</span> ';
     }
 
     projectHtml += '</p>';
