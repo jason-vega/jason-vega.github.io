@@ -38,6 +38,57 @@
         "Bootstrap", "HTML", "CSS", "JavaScript",
          "PHP", "Google Calendar"
       ]
+    },
+    {
+      "title" : "fuzzy",
+      "description" : "A virtual positive memory album developed to combat low self-esteem.",
+      "imageUrl" : "assets/images/fuzzy.JPG",
+      "links" : [
+        {
+          "title" : "GitHub",
+          "url" : "https://github.com/jason-vega/fuzzy"
+        }
+      ],
+      "technologies" : [
+        "Flutter", "Dart"
+      ]
+    },
+    {
+      "title" : "OneByte",
+      "description" : "A social media app to find and advertise free and low-cost local food. Submitted to <a href=\"https://sdhacks2018.devpost.com/\">SD Hacks 2018</a>.",
+      "imageUrl" : "assets/images/onebyte.jpg",
+      "links" : [
+        {
+          "title" : "Devpost",
+          "url" : "https://devpost.com/software/onebyte"
+        },
+        {
+          "title" : "GitHub",
+          "url" : "https://github.com/jason-vega/OneByte"
+        }
+      ],
+      "contribution" : [
+        "Implemented sending and retrieving data from a real-time database.",
+        "Developed the final layout and style of the entire app."
+      ],
+      "technologies" : [
+        "React Native", "Firebase", "JavaScript", "CSS"
+      ]
+    },
+    {
+      "title" : "FalconX Robotics Programming Curriculum",
+      "description" : "An introduction to programming fundamentals for high school robotics students. Developed for the 2017-2018 <a href=\"https://falconxrobotics.com/\">FalconX Robotics</a> programming sub-team.",
+      "imageUrl" : "assets/images/programming_curriculum.JPG",
+      "links" : [
+        {
+          "title" : "Unit 1: Intro to Programming",
+          "url" : "teaching/intro_to_programming/index.html"
+        },
+        {
+          "title" : "Unit 2: Object-Oriented Programming",
+          "url" : "teaching/object-oriented_programming/index.html"
+        }
+      ]
     }
   ]
 }
