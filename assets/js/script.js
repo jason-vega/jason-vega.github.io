@@ -331,10 +331,25 @@ window.onload = function() {
   var projectsNavLinkCollapsed = 
     document.getElementById("projectsNavLinkCollapsed");
   var contactNavLink = document.getElementById("contactNavLink");
-  var contactNavLinkCollapsed = document.getElementById("contactNavLinkCollapsed");
+  var contactNavLinkCollapsed = 
+    document.getElementById("contactNavLinkCollapsed");
+  var bioText = document.getElementById("bioText");
   var nameBackground = "nameBackground";
+  var dataFile = "assets/js/data.json";
   var scrollSpeed = 100;
   var initialHash = window.location.hash;
+  var request = new XMLHttpRequest();
+
+  request.onreadystatechange = function() {
+    if (this.readystate == 4 && this.status == 200) {
+      var data = JSON.parse(this.responseText);
+
+      bioText.innerHTML = data.bio;
+    }
+  }
+
+  request.open("GET", dataFile, true);
+  request.send();
 
   topNavLink.onclick = function(e) {
     e.preventDefault();
