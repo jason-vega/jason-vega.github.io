@@ -29,6 +29,8 @@ function addProject(project, projectListContainer, background, justifyImage) {
     'class="card-title">' + project.title + '</h5><p class="card-text">' + 
     project.description + '</p>';
 
+  console.log(project);
+
   /*for (var i = 0; i < project.links.length; i++) {
     var link = project.links[i];
 
