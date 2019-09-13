@@ -74,7 +74,8 @@ function addProject(projectListContainer, project, background, justifyImage) {
 
   projectHtml += '</div></div>';
 
-  projectListContainer.insertAdjacentHTML('beforeend', projectHtml);
+  document.getElementByid(projectListContainer)
+    .insertAdjacentHTML('beforeend', projectHtml);
 }
 
 function adjustSpacer(spacerId, contentId) {
@@ -414,8 +415,7 @@ window.onload = function() {
   var contactNavLink = document.getElementById("contactNavLink");
   var contactNavLinkCollapsed = 
     document.getElementById("contactNavLinkCollapsed");
-  var projectsListContainer = 
-    document.getElementById("projectsListContainer");
+  var projectsListContainer = "projectsListContainer";
   var bioText = document.getElementById("bioText");
   var nameBackground = "nameBackground";
   var dataFile = "assets/js/data.json";
