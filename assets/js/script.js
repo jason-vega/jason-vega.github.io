@@ -10,7 +10,7 @@ function addEvent(object, type, callback) {
   }
 }
 
-function addProject(projectListContainer, project, background, justifyImage) {
+function addProject(project, projectListContainer, background, justifyImage) {
   var projectHtml = '<div class="card rounded-0 bg-' + background + ' border-' +
     background + ' fade"><div class="row no-gutters justify-content-center ' +
     'mt-3 d-block d-sm-none"><div class="col-auto text-center"><img src="' +
@@ -74,8 +74,7 @@ function addProject(projectListContainer, project, background, justifyImage) {
 
   projectHtml += '</div></div>';
 
-  document.getElementById(projectListContainer)
-    .insertAdjacentHTML('beforeend', projectHtml);
+  projectsListContainer.insertAdjacentHTML('beforeend', projectHtml);
 }
 
 function adjustSpacer(spacerId, contentId) {
@@ -415,7 +414,7 @@ window.onload = function() {
   var contactNavLink = document.getElementById("contactNavLink");
   var contactNavLinkCollapsed = 
     document.getElementById("contactNavLinkCollapsed");
-  var projectsListContainer = "projectsListContainer";
+  var projectsListContainer = document.getElementById("projectsListContainer");
   var bioText = document.getElementById("bioText");
   var nameBackground = "nameBackground";
   var dataFile = "assets/js/data.json";
