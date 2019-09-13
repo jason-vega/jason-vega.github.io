@@ -336,6 +336,7 @@ window.onload = function() {
   var bioText = document.getElementById("bioText");
   var nameBackground = "nameBackground";
   var dataFile = "assets/js/data.json";
+  var scrollSpeed = 100;
   var initialHash = window.location.hash;
   var request = new XMLHttpRequest();
   var scrollSpeed = 100;
