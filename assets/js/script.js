@@ -15,7 +15,7 @@ function addProject(project, projectListContainer, background, justifyImage) {
     background + ' text-' + (background == 'dark' ? 'light' : 'dark') + 
     ' fade"><div class="row no-gutters justify-content-center mt-3 d-block ' + 
     'd-sm-none"><div class="col-auto text-center"><img src="' +
-    project.imageUrl + ' class="project-preview-sm rounded-circle shadow" ' + 
+    project.imageUrl + '" class="project-preview-sm rounded-circle shadow" ' + 
     'alt="' + project.title + '"></div></div><div class="row no-gutters ' +
     'align-items-center">';
 
