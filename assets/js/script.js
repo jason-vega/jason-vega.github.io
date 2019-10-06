@@ -21,8 +21,8 @@ function addProject(project, projectListContainer, background, justifyImage) {
 
   if (justifyImage == "left") {
     projectHtml += '<div class="col-auto d-none d-sm-block"><img class="' +
-      'card-img rounded-0 project-preview" src="' + project.imageUrl + 
-      '" alt="' + project.title + '"></div>';
+      'card-img rounded-0 project-preview" onload="adjustSpacers()" src="' + 
+      project.imageUrl + '" alt="' + project.title + '"></div>';
   }
   
   projectHtml += '<div class="col-sm"><div class="card-body"><h5 ' +
@@ -70,9 +70,10 @@ function addProject(project, projectListContainer, background, justifyImage) {
   projectHtml += '</div></div>';
 
   if (justifyImage == "right") {
-    projectHtml += '<div class="col-auto d-none d-sm-block"><img src="' + 
-      project.imageUrl + '" class="card-img rounded-0 project-preview" ' + 
-      'alt="' + project.title + '"></div>';
+    projectHtml += '<div class="col-auto d-none d-sm-block"><img ' + 
+      'onload="adjustSpacers()" src="' + project.imageUrl + 
+      '" class="card-img rounded-0 project-preview" alt="' + project.title + 
+      '"></div>';
   }
 
   projectHtml += '</div></div>';
