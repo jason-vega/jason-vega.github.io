@@ -480,6 +480,25 @@ window.onload = function() {
           (i % 2 == 0 ? "right" : "left"));
       }
 
+			var projectPreviewsSmall = 
+				document.getElementsByClassName("project-preview-sm");
+			var projectPreviews = 
+				document.getElementsByClassName("project-preview");
+
+			for (let preview of projectPreviewsSmall) {
+				preview.addEventListener('load', function() {
+					adjustSpacers();
+					console.log("loaded");
+				});
+			}
+
+			for (let preview of projectPreviews) {
+				preview.addEventListener('load', function() {
+					adjustSpacers();
+					console.log("loaded");
+				});
+			}
+
       adjustSpacerHeight();
       adjustAllContent();
       adjustSpacers();
