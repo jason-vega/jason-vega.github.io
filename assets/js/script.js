@@ -485,32 +485,24 @@ window.onload = function() {
 			var projectPreviews = 
 				document.getElementsByClassName("project-preview");
 
-			for (let preview of projectPreviewsSmall) {
-				preview.addEventListener('load', function() {
-					adjustSpacers();
-					console.log("loaded");
-				});
+			var adjustSpacersAfterImageLoad = function () {
+				adjustSpacers();
+
+				if (initialHash != "") {
+					window.location.hash = initialHash;
+					document.getElementById(initialHash.replace(/#/, "")).scrollIntoView();
+					document.title = titleFromElementId(initialHash.replace(/#/, ""));
+				}
 			}
 
-			for (let preview of projectPreviews) {
-				preview.addEventListener('load', function() {
-					adjustSpacers();
-					console.log("loaded");
-				});
-			}
+			projectPreviewsSmall[projectPreviewsSmall.length - 1]
+				.addEventListener('load', adjustSpacersAfterImageLoad);
+			projectPreviews[projectPreviews.length - 1]
+				.addEventListener('load', adjustSpacersAfterImageLoad);
 
       adjustSpacerHeight();
       adjustAllContent();
-      adjustSpacers();
-
       drawNameBackground(nameBackground);
-
-      if (initialHash != "") {
-        window.location.hash = initialHash;
-        document.getElementById(initialHash.replace(/#/, "")).scrollIntoView();
-        document.title = titleFromElementId(initialHash.replace(/#/, ""));
-      }
-
       fadeContent();
     }
   }
