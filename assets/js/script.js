@@ -485,15 +485,18 @@ window.onload = function() {
 			var projectPreviews = 
 				document.getElementsByClassName("project-preview");
 
-			var adjustSpacersAfterImageLoad = function () {
-				adjustSpacers();
-
+			var goToHash = function() {
 				if (initialHash != "") {
 					window.location.hash = initialHash;
 					document.getElementById(initialHash.replace(/#/, "")).scrollIntoView();
 					document.title = titleFromElementId(initialHash.replace(/#/, ""));
 				}
-			}
+			};
+
+			var adjustSpacersAfterImageLoad = function() {
+				adjustSpacers();
+				goToHash();
+			};
 
 			projectPreviewsSmall[projectPreviewsSmall.length - 1]
 				.addEventListener('load', adjustSpacersAfterImageLoad);
@@ -503,6 +506,7 @@ window.onload = function() {
       adjustSpacerHeight();
       adjustAllContent();
       drawNameBackground(nameBackground);
+			goToHash(); // Get close to section
       fadeContent();
     }
   }
