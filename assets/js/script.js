@@ -498,15 +498,19 @@ window.onload = function() {
 				goToHash();
 			};
 
-			projectPreviewsSmall[projectPreviewsSmall.length - 1]
-				.addEventListener('load', adjustSpacersAfterImageLoad);
-			projectPreviews[projectPreviews.length - 1]
-				.addEventListener('load', adjustSpacersAfterImageLoad);
+			addEvent(projectPreviewsSmall[projectPreviewsSmall.length - 1],
+				'load', adjustSpacersAfterImageLoad);
+			addEvent(projectPreviews[projectPreviews.length - 1],
+				'load', adjustSpacersAfterImageLoad);
 
       adjustSpacerHeight();
       adjustAllContent();
       drawNameBackground(nameBackground);
-			goToHash(); // Get close to section
+
+			// Get close to section
+			adjustSpacers();
+			goToHash();
+
       fadeContent();
     }
   }
