@@ -105,6 +105,8 @@ a, p, table {
   height: calc(100vh - 56px);
   opacity: 0;
   animation: fadeInThird 0.66s ease-in 1 forwards;
+	filter: blur(3px);
+	-webkit-filter: blur(3px);
 }
 
 .project-preview {
