@@ -1,0 +1,14 @@
+body {
+    padding: 20px 50px 20px 50px;
+    background-color: #f0f8ff;
+    font-family: Arial, sans-serif;
+    line-height: 1.5;
+}
+
+#headshot {
+    width: 200px;
+}
+
+#about {
+    max-width: 800px
+}
