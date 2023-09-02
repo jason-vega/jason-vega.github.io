@@ -5,10 +5,15 @@ body {
     line-height: 1.5;
 }
 
+#about {
+    max-width: 800px
+}
+
 #headshot {
     width: 200px;
 }
 
-#about {
-    max-width: 800px
+#home {
+    color: inherit;
+    text-decoration: inherit;
 }
