@@ -1,82 +1,107 @@
 <!DOCTYPE html>
-<head>
-    <title>Jason Vega - CS PhD Student @ UIUC</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/png" href="favicon.png">
-</head>
-<body>
-    <a href="../index.html" id="home">
-        <h1>
-            Jason Vega
-        </h1>
-    </a>
-    <img src="headshot.jpeg" id="headshot" />
-    <br>
-    <br>
-    <a href="CV.pdf">CV</a> &#183;
-    <a href="https://medium.com/@jasonvega14">Medium</a> &#183;
-    <a href="https://www.threads.net/@_jasonvega">Threads</a> &#183;
-    <a href="https://www.linkedin.com/in/jason-vega/">LinkedIn</a> &#183;
-    <a href="https://github.com/jason-vega">GitHub</a> &#183;
-    <a href="mailto:javega3@illinois.edu">Email</a>
-    <div id="about">
-        <p>
-            Hi there! I'm a second-year computer science Ph.D. student 
-            at the <a href="https://cs.illinois.edu">University of Illinois 
-            Urbana-Champaign</a> working on artificial intelligence research, 
-            particularly on topics in trustworthy machine learning.
-            I'm a member of the <a href="https://ggndpsngh.github.io">FOrmally
-            Certified Automation and Learning (FOCAL) Lab</a>, where I'm advised
-            by Prof. Gagandeep Singh. I graduated from the
-            <a href="https://cse.ucsd.edu">University of California San Diego</a>
-            in June 2022 with a B.S. in Computer Science. My research vision is to
-            enable efficient, ethical development of intelligent systems that are 
-            highly performant yet safe, transparent and ultimately beneficial 
-            to humanity.
-            <br>
-            <br>
-            Lately, I've been interested in <b>out-of-distribution generalization</b>; specifically, how computer vision models 
-            can be more robust against real-world distribution shifts. To this end, I'm currently exploring how to improve average-case robustness against
-            <a href="https://arxiv.org/pdf/1903.12261">common corruptions</a> 
-            in image classification. Although some may argue that average-case robustness is <a href="https://proceedings.neurips.cc/paper/2021/file/ea4c796cccfc3899b5f9ae2874237c20-Paper.pdf">not as strong</a> as worst-case robustness, I believe
-            that it is sufficient in practice for certain applications such as 
-            autonomous vehicles, where the "adversary" is better modeled as a 
-            probability distribution rather than an optimizer. Moreover, 
-            although certain strategies have been devised to improve 
-            robustness in this setting, I believe such solutions are not
-            satisfactory at a fundamental level:
-            <br>
-            <div style="color: rgb(113, 113, 113); padding-left: 10px;">
-                The predominant approach for improving common corruption 
-                robustness has been to craft various data augmentation
-                <a href="https://arxiv.org/pdf/1912.02781.pdf">schemes</a>. 
-                However, under this strategy, a model's robustness towards a 
-                corruption is largely
-                <a href="https://arxiv.org/pdf/2102.11273.pdf">correlated</a> 
-                with the similarity of augmentations present during training.
-                Even the success of <a href="https://arxiv.org/pdf/2112.13547">state of the art</a> data augmentation schemes 
-                can largely be explained by their ability to approximate 
-                test-time corruptions. Because the goal of the common 
-                corruption benchmark is to achieve robustness without 
-                leveraging knowledge of the test-time corruptions during
-                training, in some sense data augmentation does not provide 
-                much meaningful progress towards this endeavor. Another 
-                approach has been to perform self-supervised pre-training, 
-                where it has been observed that robustness emerges and improves 
-                with increasing
-                <a href="https://arxiv.org/pdf/2111.06377.pdf">model</a> 
-                <a href="https://arxiv.org/pdf/2304.07193v1.pdf">size</a>. 
-                However, training large models is costly, and so such a 
-                direction would limit the development of robust foundational
-                models to only those with vast resources. How can we close the 
-                gap in a more efficient manner than the current "robustness 
-                from scaling" approach? Can robustness be truly achieved beyond 
-                the training distribution?
+<html>
+    <head>
+        <title>Jason Vega - CS PhD Student @ UIUC</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="style.css">
+        <link rel="icon" type="image/png" href="favicon.png">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    </head>
+    <body class="mh-100 bg-dark text-light">
+        <nav class="navbar navbar-expand-sm navbar-dark bg-dark text-light px-3">
+            <a class="navbar-brand" href="index.html">Jason Vega</a>
+        </nav>
+        <div class="container-fluid" id="about">
+            <div class="row p-4 bg-dark text-light">
+                <div class="col">
+                    <div class="row align-items-center">
+                        <div class="col-md-3 mb-4 mb-md-0 text-center">
+                            <img src="headshot.jpeg" class="img-fluid img-thumbnail rounded-circle" />
+                        </div>
+                        <div class="col-md-9">
+                            <div class="row">
+                                <div class="col">
+                                    <p>
+                                        Hi there! I'm a second-year computer science Ph.D. student at the <a href="https://cs.illinois.edu">University of Illinois Urbana-Champaign</a> working on artificial intelligence research, particularly on topics in trustworthy machine learning. I'm a member of the <a href="https://ggndpsngh.github.io">FOrmally
+                                        Certified Automation and Learning (FOCAL) Lab</a>, where I'm advised by Prof. Gagandeep Singh. I graduated from the <a href="https://cse.ucsd.edu">University of California San Diego</a> in June 2022 with a B.S. in Computer Science. My research vision is to enable efficient, ethical development of intelligent systems that are 
+                                        highly performant yet safe, transparent and ultimately beneficial to humanity.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="row align-items-center justify-content-center">
+                                <div class="col-auto text-center">
+                                    <a class="btn btn-outline-primary" href="CV.pdf">CV</a>
+                                </div>
+                                <div class="col-auto text-center">
+                                    <a class="btn btn-outline-primary" href="https://www.threads.net/@_jasonvega">Threads</a>
+                                </div>
+                                <div class="col-auto text-center">
+                                    <a class="btn btn-outline-primary" href="https://medium.com/@jasonvega14">Medium</a>
+                                </div>
+                                <div class="col-auto text-center">
+                                    <a class="btn btn-outline-primary" href="https://www.linkedin.com/in/jason-vega/">LinkedIn</a>
+                                </div>
+                                <div class="col-auto text-center">
+                                    <a class="btn btn-outline-primary" href="mailto:javega3@illinois.edu">Email</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <br>
-            A bit more about me: I grew up in the Bay Area and will always be a 
-            Californian at heart. Outside of research, I enjoy playing the violin in the <a href="https://music.illinois.edu/perform/orchestras/philharmonia-orchestra/">UIUC Philharmonia Orchestra</a>, going for a run, and watching films and shows.
-        </p>
-    </div>
-</body>
+            <div class="row pb-4 px-4">
+                <div class="col">
+                    <p>
+                        Here's what I've been working on:
+                    </p>
+                    <ul class="mb-0">
+                        <li>
+                            <b>Out-of-Distribution Generalization (primary)</b>
+                            <ul>
+                                <li>
+                                    Average-case robustness to <a href="https://arxiv.org/pdf/1903.12261">common corruptions</a> in image classification
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <b>Safety of Large Language Models (LLMs)</b>
+                            <ul>
+                                <li>
+                                    Efficient attacks against open-source LLMs
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row pb-4 px-4">
+                <div class="col">
+                    <p>
+                        A bit more about me:
+                    </p>
+                    <ul>
+                        <li>
+                            I grew up in the Bay Area &#x1F309; and will always be a Californian &#x1F43B; at heart.
+                        </li>
+                        <li>
+                            Outside of research, I enjoy:
+                            <ul>
+                                <li>
+                                    Playing the violin &#x1F3BB; in the <a href="https://music.illinois.edu/perform/orchestras/philharmonia-orchestra/">UIUC Philharmonia Orchestra</a>
+                                </li>
+                                <li>
+                                    Going for a run &#x1f3c3;
+                                </li>
+                                <li>
+                                    Watching films and shows &#x1f3a5;
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </body>
 </html>

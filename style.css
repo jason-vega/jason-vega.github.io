@@ -1,18 +1,3 @@
-body {
-    padding: 20px 50px 20px 50px;
-    background-color: #f0f8ff;
-    font-family: Arial, sans-serif;
-    line-height: 1.5;
-}
-
-#about {
-    max-width: 800px
-}
-
-#headshot {
-    width: 200px;
-}
-
 #home {
     color: inherit;
     text-decoration: inherit;
