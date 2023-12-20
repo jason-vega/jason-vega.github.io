@@ -9,14 +9,14 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     </head>
-    <body class="h-100 bg-dark text-light">
+    <body class="h-100 bg-light text-dark">
         <div class="d-flex flex-column h-100">
             <nav class="navbar navbar-expand-sm navbar-dark bg-dark text-light px-3">
                 <a class="navbar-brand" href="index.html">Jason Vega</a>
             </nav>
-            <div class="container-fluid flex-grow-1 shadow" id="about">
-                <div class="row p-4 bg-dark bg-gradient text-light">
-                    <div class="col">
+            <div class="container-fluid flex-grow-1">
+                <div class="row p-4 bg-light bg-gradient text-dark justify-content-center">
+                    <div class="col" id="bio-col">
                         <div class="row align-items-center">
                             <div class="col-lg-3 mb-4 mb-lg-0 text-center">
                                 <img src="headshot.jpeg" class="img-fluid img-thumbnail rounded-circle" />
@@ -53,10 +53,10 @@
                     </div>
                 </div>
                 <div class="row pb-4 px-4 justify-content-center">
-                    <div class="col-auto">
-                        <p>
-                            Here's what I've been working on:
-                        </p>
+                    <div class="col" id="main-content-col">
+                        <h2>
+                            Research Interests
+                        </h2>
                         <ul class="mb-0">
                             <li>
                                 <b>Out-of-Distribution Generalization</b>
@@ -76,9 +76,35 @@
                             </li>
                         </ul>
                         <br>
+                        <h2>
+                            Papers
+                        </h2>
                         <p>
-                            A bit more about me:
+                            (* denotes equal contribution)
                         </p>
+                        <div class="card bg-light text-dark">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    Bypassing the Safety Training of Open-Source LLMs with Priming Attacks
+                                </h5>
+                                <h6 class="card-subtitle mb-2 text-muted">
+                                    <b>Jason Vega*</b>, Isha Chaudhary*, Changming Xu*, Gagandeep Singh
+                                </h6>
+                                <h6 class="card-subtitle mb-2 text-muted">
+                                    Arxiv, 2023
+                                </h6>
+                                <p class="card-text">
+                                    We investigate the fragility of SOTA open-source LLMs under simple, optimization-free attacks we refer to as <i>priming attacks</i>, which are easy to execute and effectively bypass alignment from safety training.
+                                </p>
+                                <a href="https://arxiv.org/abs/2312.12321" class="card-link">Paper</a>
+                                <a href="https://github.com/uiuc-focal-lab/llm-priming-attacks" class="card-link">Code</a>
+                                <a href="https://llmpriming.focallab.org" class="card-link">Website</a>
+                            </div>
+                        </div>
+                        <br>
+                        <h2>
+                            Other
+                        </h2>
                         <ul>
                             <li>
                                 I grew up in the Bay Area &#x1F309; and will always be a Californian &#x1F43B; at heart.

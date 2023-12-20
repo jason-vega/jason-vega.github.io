@@ -1,3 +1,7 @@
-#about {
+#bio-col {
     max-width: 1140px;
+}
+
+#main-content-col {
+    max-width: 720px;
 }
