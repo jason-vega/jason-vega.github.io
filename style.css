@@ -2,6 +2,10 @@
     max-width: 1140px;
 }
 
+#headshot {
+    width: 250px;
+}
+
 #mainContentCol {
     max-width: 720px;
 }
